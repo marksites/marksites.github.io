@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Марк — сайты для бизнеса</title>
-<meta name="description" content="Делаю сайты для малого бизнеса: от аккуратной визитки до премиальной витрины с анимацией. Быстро грузятся, хорошо смотрятся на телефоне. Пишите в Telegram @Mark_Kanash.">
+<meta name="description" content="Делаю сайты для малого бизнеса: от аккуратной визитки до премиальной витрины с анимацией. Сайты с нуля, без шаблонов. Пишите в Telegram @Mark_Kanash.">>
 <meta name="theme-color" content="#f3f1ec">
 <meta property="og:title" content="Марк — сайты для бизнеса">
 <meta property="og:description" content="От аккуратной визитки до премиальной витрины с анимацией. Telegram: @Mark_Kanash">
@@ -121,13 +121,13 @@ h1,h2,h3{font-family:"Unbounded",sans-serif;font-weight:500;letter-spacing:-.03e
 .lbl{display:inline-flex;align-items:center;gap:10px;font:500 13px "Onest",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
 .lbl:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc)}
 .btn{display:inline-flex;align-items:center;gap:12px;padding:18px 28px;border-radius:60px;background:var(--ink);color:#fff;font:500 16px "Onest",sans-serif;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s}
-.btn:hover{background:var(--acc);transform:translateY(-2px)}
+@media (hover:hover){.btn:hover{background:var(--acc);transform:translateY(-2px)}}
 .btn svg{width:20px;height:20px;flex:none}
 .btn.lt{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
 .btn.lt:hover{background:var(--ink);color:#fff}
 
 /* шапка */
-header{position:sticky;top:0;z-index:20;background:rgba(243,241,236,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header{position:sticky;top:0;z-index:20;background:rgba(243,241,236,.97);border-bottom:1px solid transparent;transition:border-color .3s}
 header.sc{border-color:var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
 .logo{display:flex;align-items:center;gap:12px;font:600 18px "Unbounded",sans-serif;letter-spacing:-.02em}
@@ -197,15 +197,15 @@ header.sc{border-color:var(--line)}
 .wk .pic{position:relative;display:block;padding:0 0 40px 0}
 .wk .pic .brz{width:88%;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .wk .pic .tel{position:absolute;right:0;bottom:0;width:24%;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
-.wk .pic:hover .brz{transform:translateY(-8px)}
-.wk .pic:hover .tel{transform:translateY(-16px) rotate(-2deg)}
+@media (hover:hover){.wk .pic:hover .brz{transform:translateY(-8px)}
+.wk .pic:hover .tel{transform:translateY(-16px) rotate(-2deg)}}
 
 /* тарифы */
 .dark{background:var(--ink);color:var(--bg);border-radius:40px;margin:0 16px}
 .dark .sh p,.dark .lbl{color:#a9a59d}
 .tarif{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .tf{border-radius:28px;padding:36px;background:#1d1d1c;display:flex;flex-direction:column;gap:18px;position:relative;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-.tf:hover{transform:translateY(-6px)}
+@media (hover:hover){.tf:hover{transform:translateY(-6px)}}
 .tf.hi{background:var(--acc);color:#121212}
 .tf .nm{font:500 22px "Unbounded",sans-serif;letter-spacing:-.02em}
 .tf .pr{font:500 clamp(34px,3.4vw,46px) "Unbounded",sans-serif;letter-spacing:-.04em}
@@ -305,8 +305,8 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
   <div class="w g">
     <div>
       <span class="status ld"><b></b><span id="mes">Беру новые проекты</span></span>
-      <h1 class="ld" style="animation-delay:.1s">Привет, я Марк.<br>Делаю сайты, которые <span class="rot ac" id="rot"><span class="on">продают</span><span>запоминают</span><span>не тормозят</span><span>радуют глаз</span></span></h1>
-      <p class="lead ld" style="animation-delay:.25s">Сайты для малого бизнеса: от аккуратной визитки до премиальной витрины с анимацией. Каждый сделан с нуля, без шаблонов, и быстро открывается даже на старом телефоне.</p>
+      <h1 class="ld" style="animation-delay:.1s">Привет, я Марк.<br>Делаю сайты, которые <span class="rot ac" id="rot"><span class="on">продают</span><span>запоминают</span><span>цепляют</span><span>радуют глаз</span></span></h1>
+      <p class="lead ld" style="animation-delay:.25s">Сайты для малого бизнеса: от аккуратной визитки до премиальной витрины с анимацией. Каждый сделан с нуля, без шаблонов, и одинаково хорошо смотрится на телефоне и компьютере.</p>
       <div class="cta ld" style="animation-delay:.4s">
         <a class="btn" href="https://t.me/Mark_Kanash" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg>Обсудить сайт</a>
         <a class="btn lt" href="#raboty">Смотреть работы</a>
@@ -365,7 +365,7 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
         <h3>ТИШИНА</h3>
         <span class="tag">Премиум с эффектами</span>
         <p>Сайт бюро интерьеров уровня дорогих студий: фото перетекают друг в друга, проекты ложатся стопкой, а эскиз комнаты превращается в готовый дом под ползунком.</p>
-        <ul><li>Эффекты на WebGL, без тормозов</li><li>Ползунок «эскиз → дом»</li><li>Тёмный премиальный стиль</li></ul>
+        <ul><li>Фото, которые перетекают друг в друга</li><li>Ползунок «эскиз → дом»</li><li>Тёмный премиальный стиль</li></ul>
         <a class="btn" href="tishina/" target="_blank" rel="noopener">Открыть сайт ↗</a>
       </div>
       <a class="pic rv" href="tishina/" target="_blank" rel="noopener" aria-label="Открыть сайт бюро ТИШИНА">
@@ -382,7 +382,7 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
     <div class="tarif">
       <div class="tf rv">
         <span class="nm">Визитка</span>
-        <span class="pr">от 5 000 <small>₽</small></span>
+        <span class="pr">от 8 000 <small>₽</small></span>
         <span class="sr">3–5 дней · как сайт LOTOS</span>
         <ul><li>Одна страница: услуги, цены, контакты</li><li>Удобно с телефона</li><li>Кнопка записи или звонка</li><li>Подключу домен и хостинг</li></ul>
         <span class="pm"><a href="salon/" target="_blank" rel="noopener">Посмотреть пример ↗</a></span>
@@ -390,16 +390,16 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
       <div class="tf hi rv">
         <span class="bd">Оптимально</span>
         <span class="nm">С характером</span>
-        <span class="pr">от 10 000 <small>₽</small></span>
+        <span class="pr">от 12 000 <small>₽</small></span>
         <span class="sr">7–10 дней · как сайт «Марта»</span>
         <ul><li>Свой стиль и живые детали</li><li>Анимации при прокрутке</li><li>Форма заявки или брони</li><li>Тексты помогу написать</li></ul>
         <span class="pm"><a href="pekarnya/" target="_blank" rel="noopener">Посмотреть пример ↗</a></span>
       </div>
       <div class="tf rv">
         <span class="nm">Премиум</span>
-        <span class="pr">от 20 000 <small>₽</small></span>
+        <span class="pr">от 16 000 <small>₽</small></span>
         <span class="sr">2–3 недели · как сайт «ТИШИНА»</span>
-        <ul><li>Сложные эффекты и 3D-анимация</li><li>Несколько разделов</li><li>Уникальные интерактивные блоки</li><li>Ускорение под слабые телефоны</li></ul>
+        <ul><li>Сложные эффекты и 3D-анимация</li><li>Несколько разделов</li><li>Уникальные интерактивные блоки</li><li>Продуманная анимация каждого блока</li></ul>
         <span class="pm"><a href="tishina/" target="_blank" rel="noopener">Посмотреть пример ↗</a></span>
       </div>
     </div>
@@ -414,10 +414,10 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
       <div class="sp rv"><h3>Пишете мне</h3><p>В Telegram, в пару строк: что за бизнес и какой сайт хочется. Можно скинуть примеры, которые нравятся.</p></div>
       <div class="sp rv"><h3>Обсуждаем</h3><p>Короткий разговор: разделы, стиль, сроки. Называю точную цену, и только после этого начинаю.</p></div>
       <div class="sp rv"><h3>Делаю и показываю</h3><p>Присылаю ссылку на черновик, вы смотрите с телефона и говорите, что поправить.</p></div>
-      <div class="sp rv"><h3>Запускаем</h3><p>Подключаю домен, проверяю скорость и отдаю готовый сайт. Подскажу, как вносить мелкие изменения.</p></div>
+      <div class="sp rv"><h3>Запускаем</h3><p>Подключаю домен, проверяю всё на телефоне и компьютере и отдаю готовый сайт. Подскажу, как вносить мелкие изменения.</p></div>
     </div>
     <div class="pl">
-      <div class="rv"><b>~1<em> с</em></b><span>главный экран примеров на слабом телефоне</span></div>
+      <div class="rv"><b>3<em> стиля</em></b><span>от простого до премиального — выберите свой</span></div>
       <div class="rv"><b>0<em> шаблонов</em></b><span>каждый сайт сделан с нуля, без конструкторов</span></div>
       <div class="rv"><b>100<em>%</em></b><span>сайтов хорошо смотрятся на телефоне</span></div>
       <div class="rv"><b>1<em> чат</em></b><span>все вопросы решаем в Telegram, без созвонов по часу</span></div>
@@ -432,7 +432,7 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
       <div class="q rv"><button aria-expanded="false">У меня нет текстов и фото. Это проблема?<i>+</i></button><div class="a"><div><p>Нет. Помогу написать тексты по вашим ответам и подберу фото. Если есть свои снимки, лучше использовать их: живые фото всегда работают лучше.</p></div></div></div>
       <div class="q rv"><button aria-expanded="false">А домен и хостинг?<i>+</i></button><div class="a"><div><p>Подскажу, где взять, и всё подключу. Домен в зоне .ru обычно стоит несколько сотен рублей в год. Хостинг для такого сайта бывает бесплатным или стоит недорого.</p></div></div></div>
       <div class="q rv"><button aria-expanded="false">Можно будет потом что-то поменять?<i>+</i></button><div class="a"><div><p>Да. Правки по ходу работы входят в цену. После запуска мелкие изменения вроде цен или телефона делаю быстро, договоримся заранее.</p></div></div></div>
-      <div class="q rv"><button aria-expanded="false">Почему не Tilda или другой конструктор?<i>+</i></button><div class="a"><div><p>Сайт с нуля быстрее грузится, не похож на тысячи других и не требует ежемесячной подписки на конструктор. А эффекты, как в примерах, в конструкторе часто просто не сделать.</p></div></div></div>
+      <div class="q rv"><button aria-expanded="false">Почему не Tilda или другой конструктор?<i>+</i></button><div class="a"><div><p>Сайт с нуля не похож на тысячи других и не требует ежемесячной подписки на конструктор. А эффекты, как в примерах, в конструкторе часто просто не сделать.</p></div></div></div>
       <div class="q rv"><button aria-expanded="false">Как оплачивать?<i>+</i></button><div class="a"><div><p>Обычно частями: предоплата перед стартом и остаток после того, как вы приняли готовый сайт. Детали обсудим в переписке.</p></div></div></div>
     </div>
   </div>

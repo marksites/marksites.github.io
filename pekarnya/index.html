@@ -125,19 +125,22 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:background-color 1.4s ease,color 1.4s ease}
+html{background:#f6eadb}
+body{margin:0;color:var(--ink);font:400 17px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:color 0s linear .45s}
+/* фон — отдельный слой на видеокарте: плавно меняется только он, текст переключается один раз на середине */
+body:before{content:"";position:fixed;inset:-10vh 0;z-index:-1;background:var(--bg);transition:background-color .9s ease;will-change:transform;transform:translateZ(0);pointer-events:none}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .w{max-width:1200px;margin:0 auto;padding:0 28px}
 h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:500;line-height:1.08;margin:0}
 em{font-style:italic;color:var(--crust)}
 .hand{font:500 28px/1.2 Caveat,cursive;color:var(--crust)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:var(--ink);color:#fdf6ec;font:700 15px Manrope,sans-serif;border:0;cursor:pointer;transition:transform .25s,background .25s}
-.btn:hover{transform:translateY(-2px);background:var(--crust)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:var(--ink);color:var(--bg);font:700 15px Manrope,sans-serif;border:0;cursor:pointer;transition:transform .25s,background .25s}
+@media (hover:hover){.btn:hover{transform:translateY(-2px);background:var(--crust)}}
 .btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
-.btn.line:hover{background:var(--ink);color:#fdf6ec}
+.btn.line:hover{background:var(--ink);color:var(--bg)}
 
-header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 94%,transparent);border-bottom:1px solid var(--line);transition:background-color 1.4s}
+header{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);transition:background-color .9s}
 .nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
 .logo{display:flex;align-items:baseline;gap:12px}
 .logo b{font:italic 500 32px "Playfair Display",serif}
@@ -170,7 +173,7 @@ header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 9
 .day .intro h2{font-size:clamp(40px,5vw,72px);margin-top:14px}
 .tl{display:grid;grid-template-columns:260px 1fr;gap:60px}
 .clock{position:sticky;top:120px;align-self:start}
-.clock b{display:block;font:italic 500 clamp(64px,7vw,104px)/1 "Playfair Display",serif;transition:color 1s}
+.clock b{display:block;font:italic 500 clamp(64px,7vw,104px)/1 "Playfair Display",serif}
 .clock span{display:block;margin-top:10px;color:var(--mut);font-size:15px}
 .bar{height:2px;background:var(--line);margin-top:26px;border-radius:2px;overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:var(--crust);transition:width .8s ease}
@@ -189,7 +192,7 @@ header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 9
 .vit h2{font-size:clamp(40px,5vw,72px)}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .c{background:var(--card);border-radius:22px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .3s}
-.c:hover{transform:translateY(-4px)}
+@media (hover:hover){.c:hover{transform:translateY(-4px)}}
 .c img{aspect-ratio:1;object-fit:cover;width:100%}
 .c .bd{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
 .c h3{font-size:22px;margin-bottom:4px}
@@ -240,7 +243,7 @@ section{padding:130px 0}
   .hero .w,.res .w{grid-template-columns:1fr}
   .pic{max-width:480px;margin:0 auto}.note{left:-6px}.temp{right:-4px}
   .tl{grid-template-columns:1fr;gap:0}
-  .clock{top:78px;z-index:5;background:color-mix(in srgb,var(--bg) 96%,transparent);padding:12px 0;display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);transition:background-color 1.4s}
+  .clock{top:78px;z-index:5;background:var(--bg);padding:12px 0;display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);transition:background-color .9s}
   .clock b{font-size:44px}.clock span{margin:0}.bar{display:none}
   .ch,.ch:nth-child(even){grid-template-columns:1fr;min-height:0;gap:24px;padding:50px 0}
   .ch:nth-child(even) .ph{order:0}
