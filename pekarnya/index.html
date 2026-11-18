@@ -6,6 +6,7 @@
 <title>Марта — хлеб и утро</title>
 <meta name="description" content="Пекарня «Марта»: хлеб на живой закваске, круассаны и завтраки. Каждое утро с 5:00 печём то, что продадим сегодня.">
 <meta name="theme-color" content="#f6eadb">
+<script>/* старт всегда сверху: браузер не возвращает к старой прокрутке и к метке #… в адресе (кроме переходов внутри сайта) */if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash&&!document.referrer.startsWith(location.origin)){history.replaceState(null,'',location.pathname+location.search);window.__vverh=1}</script>
 <style>
 @font-face {
   font-family: 'Caveat';
@@ -302,6 +303,8 @@ section{padding:130px 0}
 @keyframes pk{40%{transform:translate(-50%,0) scale(1.06)}}
 @media (max-width:900px){.cards{grid-template-columns:1fr 1fr}.spisok .str{grid-template-columns:1fr auto 70px 22px;gap:10px}}
 @media (max-width:560px){.cards{grid-template-columns:1fr}.c img{aspect-ratio:16/10}.korz{width:calc(100% - 24px);justify-content:space-between;bottom:12px}}
+
+[id]{scroll-margin-top:90px}
 </style>
 </head>
 <body>
@@ -499,6 +502,15 @@ document.getElementById('forma').onsubmit=e=>{e.preventDefault();const osh=docum
   korz={};sohr();ris()};
 ris();
 document.querySelectorAll('.menu a').forEach(a=>a.onclick=()=>document.querySelector('.menu').classList.remove('open'));
+})();
+</script>
+<script>
+(()=>{/* кнопки-ссылки на блоки страницы: плавная прокрутка без метки #… в адресе */
+const r=document.documentElement,vverh=()=>{if(window.__vverh&&!window.__tronul){r.style.scrollBehavior='auto';scrollTo(0,0);r.style.scrollBehavior=''}};
+['touchstart','wheel','keydown'].forEach(t=>addEventListener(t,()=>window.__tronul=1,{once:true,passive:true}));
+vverh();addEventListener('load',vverh);
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute('href');if(h.length<2)return;const el=document.getElementById(h.slice(1));if(!el)return;
+  e.preventDefault();el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})});
 })();
 </script>
 </body>

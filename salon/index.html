@@ -6,6 +6,7 @@
 <title>LOTOS — студия красоты</title>
 <meta name="description" content="LOTOS — студия красоты в центре города. Маникюр, волосы, уход за лицом. Цены и запись по телефону.">
 <meta name="theme-color" content="#f6f1ea">
+<script>/* старт всегда сверху: браузер не возвращает к старой прокрутке и к метке #… в адресе (кроме переходов внутри сайта) */if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash&&!document.referrer.startsWith(location.origin)){history.replaceState(null,'',location.pathname+location.search);window.__vverh=1}</script>
 <style>
 @font-face {
   font-family: 'Cormorant Garamond';
@@ -149,6 +150,8 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .cols,.kont .w>div{grid-template-columns:1fr}
   .ceny,.kont{padding:48px 0}
 }
+
+[id]{scroll-margin-top:84px}
 </style>
 </head>
 <body>
@@ -219,5 +222,14 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </main>
 
 <footer><div class="w"><span>LOTOS · студия красоты</span><span>Пример сайта. Все данные условные.</span></div></footer>
+<script>
+(()=>{/* кнопки-ссылки на блоки страницы: плавная прокрутка без метки #… в адресе */
+const r=document.documentElement,vverh=()=>{if(window.__vverh&&!window.__tronul){r.style.scrollBehavior='auto';scrollTo(0,0);r.style.scrollBehavior=''}};
+['touchstart','wheel','keydown'].forEach(t=>addEventListener(t,()=>window.__tronul=1,{once:true,passive:true}));
+vverh();addEventListener('load',vverh);
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute('href');if(h.length<2)return;const el=document.getElementById(h.slice(1));if(!el)return;
+  e.preventDefault();el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})});
+})();
+</script>
 </body>
 </html>

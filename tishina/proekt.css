@@ -20,6 +20,7 @@ header.sc:before{opacity:1}header.skr{transform:translateY(-100%)}
 .nav nav a{opacity:.85;transition:opacity .3s}.nav nav a:hover{opacity:1;color:var(--sand)}
 .top{position:relative;height:100svh;min-height:600px;overflow:hidden}
 .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.top picture,.next picture{display:contents}
 .top:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,9,8,.92),rgba(10,9,8,.15) 55%,rgba(10,9,8,.35))}
 .top:before{content:"";position:absolute;inset:22px;border:1px solid rgba(212,178,106,.32);z-index:2;pointer-events:none}
 .top .w{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:70px}

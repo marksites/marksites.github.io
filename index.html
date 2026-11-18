@@ -6,7 +6,8 @@
 <title>Марк — сайты для бизнеса</title>
 <meta name="description" content="Делаю сайты для малого бизнеса: от аккуратной визитки до премиальной витрины с анимацией. Сайты с нуля, без шаблонов. Пишите в Telegram @Mark_Kanash.">>
 <meta name="theme-color" content="#f3f1ec">
-<script>/* всегда открываться с начала: браузер не возвращает на место, где листали в прошлый раз */if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
+<script>/* старт всегда сверху: браузер не возвращает к старой прокрутке и к метке #… в адресе (кроме переходов внутри сайта) */if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash&&!document.referrer.startsWith(location.origin)){history.replaceState(null,'',location.pathname+location.search);window.__vverh=1}</script>
+
 <meta property="og:title" content="Марк — сайты для бизнеса">
 <meta property="og:description" content="От аккуратной визитки до премиальной витрины с анимацией. Telegram: @Mark_Kanash">
 <meta property="og:image" content="img/dizayn_pc.webp">
@@ -289,6 +290,8 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin
   footer{margin-top:90px}
 }
 @media (max-width:420px){.pl{grid-template-columns:1fr}.btn{padding:16px 22px}}
+
+[id]{scroll-margin-top:84px}
 </style>
 </head>
 <body>
@@ -472,6 +475,15 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 new IntersectionObserver(([e])=>document.getElementById('mq').classList.toggle('off',!e.isIntersecting)).observe(document.getElementById('mq'));
 // вопросы
 document.querySelectorAll('.q button').forEach(b=>b.onclick=()=>{const q=b.parentElement,o=q.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+})();
+</script>
+<script>
+(()=>{/* кнопки-ссылки на блоки страницы: плавная прокрутка без метки #… в адресе */
+const r=document.documentElement,vverh=()=>{if(window.__vverh&&!window.__tronul){r.style.scrollBehavior='auto';scrollTo(0,0);r.style.scrollBehavior=''}};
+['touchstart','wheel','keydown'].forEach(t=>addEventListener(t,()=>window.__tronul=1,{once:true,passive:true}));
+vverh();addEventListener('load',vverh);
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute('href');if(h.length<2)return;const el=document.getElementById(h.slice(1));if(!el)return;
+  e.preventDefault();el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})});
 })();
 </script>
 </body>
