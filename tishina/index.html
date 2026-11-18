@@ -6,6 +6,7 @@
 <title>ТИШИНА — бюро интерьеров</title>
 <meta name="description" content="ТИШИНА — бюро интерьеров. Проектируем спокойные дома: свет, материалы, тишина. Проекты под ключ от 2 500 ₽ за м².">
 <meta name="theme-color" content="#0a0908">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%230a0908'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='%23d4b26a' stroke-width='2'/%3E%3Ctext x='32' y='43' font-family='Georgia' font-size='30' text-anchor='middle' fill='%23d4b26a'%3EТ%3C/text%3E%3C/svg%3E">
 <style>
 @font-face {
   font-family: 'Cormorant Garamond';
@@ -199,8 +200,15 @@ i.s,em{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;
 .lbl{font:500 11px "Inter Tight",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
 
 /* заставка */
-.pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;padding:40px;transition:clip-path 1.1s cubic-bezier(.77,0,.18,1)}
-.pre.go{clip-path:inset(0 0 100% 0)}
+.pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:transform 1s cubic-bezier(.77,0,.18,1);will-change:transform}
+.pre.go{transform:translateY(-100%)}
+.pre-in{display:grid;justify-items:center;gap:20px;animation:prein 1s cubic-bezier(.2,.8,.1,1) both}
+@keyframes prein{from{opacity:0;transform:translateY(14px)}}
+.pre .mono{display:grid;place-items:center;width:74px;height:74px;border:1px solid rgba(212,178,106,.6);border-radius:50%;font:300 38px/1 "Cormorant Garamond",serif;color:var(--sand)}
+.pre .nm{font:500 14px "Inter Tight",sans-serif;letter-spacing:.6em;padding-left:.6em}
+.pre .ln{display:block;width:180px;height:1px;background:rgba(212,178,106,.18);overflow:hidden}
+.pre .ln:after{content:"";display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;animation:preln 1.7s cubic-bezier(.6,0,.2,1) .2s forwards}
+@keyframes preln{to{transform:scaleX(1)}}
 .pre .num{font:200 clamp(90px,16vw,240px)/.8 "Inter Tight",sans-serif;letter-spacing:-.06em}
 .pre .stack{position:absolute;left:50%;top:50%;width:min(300px,50vw);aspect-ratio:3/4;transform:translate(-50%,-55%)}
 .pre .stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.15);transition:opacity .4s,transform 1.2s cubic-bezier(.2,.7,.1,1)}
@@ -453,15 +461,11 @@ header:before{border-bottom-color:var(--line)}
 .hero .w:before{content:"";position:absolute;left:0;right:0;top:0;height:200px;background:linear-gradient(180deg,rgba(10,9,8,.72),rgba(10,9,8,0));pointer-events:none;z-index:1}
 .hero .w{position:static}.hero .w>*{position:relative;z-index:2}
 .it .h b{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(32px,3.4vw,54px);letter-spacing:-.01em}
-@media (max-width:900px){.hero:before{inset:12px}.card .smotr{top:16px;right:16px;padding:9px 14px;font-size:10px}}
+@media (max-width:900px){body:after{display:none}.hero:before{inset:12px}.card .smotr{top:16px;right:16px;padding:9px 14px;font-size:10px}}
 </style>
 </head>
 <body class="wait">
-<div class="pre" id="pre">
-  <div class="stack" id="stack"></div>
-  <span class="lbl">Бюро интерьеров · с 2014</span>
-  <div class="num" id="num">0</div>
-</div>
+<div class="pre" id="pre"><div class="pre-in"><span class="mono">Т</span><span class="nm">ТИШИНА</span><i class="ln"></i><span class="lbl">Бюро интерьеров · с 2014</span></div></div>
 
 <header>
   <div class="w nav">
@@ -582,13 +586,13 @@ const U=id=>`img/l_${id}_hero_1800.webp`; // на телефоне берётс�
 const SLIDES=[['osob','Особняк в Барвихе'],['pent','Пентхаус над городом'],['kv','Квартира на Патриарших'],['rest','Ресторан «Латунь»']];
 
 // ---------- заставка: счётчик и стопка интерьеров ----------
-const pre=document.getElementById('pre'),num=document.getElementById('num'),stack=document.getElementById('stack');
-SLIDES.forEach(([id])=>{const im=new Image();im.src=`img/l_${id}_hero_400.webp`;im.alt='';stack.appendChild(im)});
-const kartinki=[...stack.children];let t0=performance.now();
-function schet(now){const k=Math.min(1,(now-t0)/1500),v=Math.round((1-Math.pow(1-k,2))*100);num.textContent=v;
-  kartinki.forEach((im,i)=>im.classList.toggle('on',v>=i*20));
-  if(k<1)requestAnimationFrame(schet);else setTimeout(()=>{pre.classList.add('go');document.body.classList.remove('wait');document.body.classList.add('ready');setTimeout(()=>pre.remove(),1200)},150)}
-if(reduce){pre.remove();document.body.classList.remove('wait');document.body.classList.add('ready')}else requestAnimationFrame(schet);
+// Заставка уходит, когда готово первое фото (не раньше 1.9 с и не позже 4 с).
+// Пока она на экране, тяжёлая работа (распаковка фото) идёт в фоне, а её линия анимируется на видеокарте.
+const pre=document.getElementById('pre');let fotoGotovo=false,minProshlo=false;
+function ubrat(){if(pre.classList.contains('go'))return;pre.classList.add('go');t1=performance.now(); /* первый слайд считаем с момента, когда его видно */document.body.classList.remove('wait');document.body.classList.add('ready');setTimeout(()=>pre.remove(),1100)}
+function pervoeFoto(){fotoGotovo=true;if(minProshlo)ubrat()}
+if(reduce){pre.remove();document.body.classList.remove('wait');document.body.classList.add('ready')}
+else{setTimeout(()=>{minProshlo=true;if(fotoGotovo)ubrat()},1900);setTimeout(ubrat,4000)}
 
 // ---------- появление ----------
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);const b=e.target.querySelector&&e.target.querySelector('[data-n]');if(b)schetchik(b)}}),{rootMargin:'0px 0px -8% 0px'});
@@ -686,6 +690,7 @@ if(!gl){ // запасной вариант — обычная плавная с
   cv.remove();SLIDES.forEach(([id],i)=>{const im=new Image();im.className='fb'+(i?'':' on');im.src=U(id);im.alt='';hero.prepend(im)});
   const fbs=[...hero.querySelectorAll('.fb')].reverse();
   setInterval(()=>{fbs[tek].classList.remove('on');tek=(tek+1)%SLIDES.length;fbs[tek].classList.add('on');podpis(tek);t1=performance.now()},DLIT);
+  fbs[0].decode?fbs[0].decode().then(pervoeFoto,pervoeFoto):pervoeFoto();
   (function b(n){polosa(n);requestAnimationFrame(b)})(performance.now());return}
 hero.classList.add('gl');
 const vs='attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
@@ -708,10 +713,14 @@ const ap=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(ap);gl.vertexAt
 const L=x=>gl.getUniformLocation(pr,x),uK=L('k'),uT=L('t'),uZ=L('z'),uRes=L('res'),uRa=L('ra'),uRb=L('rb');
 gl.uniform1i(L('a'),0);gl.uniform1i(L('b'),1);
 const tex=[],raz=[];
-function zagruz(i){return new Promise(ok=>{const im=new Image();im.onload=()=>{const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
+// фото распаковывается в фоновом потоке (createImageBitmap), чтобы не тормозить анимации
+async function istochnik(url){
+  try{if(window.createImageBitmap&&window.fetch){const bl=await(await fetch(url)).blob();return await createImageBitmap(bl)}}catch(e){}
+  return await new Promise((ok,no)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=no;im.src=url})}
+function zagruz(i){return istochnik(U(SLIDES[i][0])).then(im=>{const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
   gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,im);
   [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T].forEach(p=>gl.texParameteri(gl.TEXTURE_2D,p,gl.CLAMP_TO_EDGE));gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
-  tex[i]=t;raz[i]=[im.naturalWidth,im.naturalHeight];ok()};im.src=U(SLIDES[i][0])})}
+  tex[i]=t;raz[i]=[im.naturalWidth||im.width,im.naturalHeight||im.height];if(im.close)im.close()})}
 // Видеокарту не гоняем зря: картинка рисуется в разрешении не выше 1.25x (на телефоне 1x),
 // в спокойном состоянии ~30 кадров/с (медленный наезд камеры этого хватает), во время растворения — каждый кадр.
 const dpr=Math.min(devicePixelRatio||1,mob?1.5:1.25);
@@ -724,12 +733,15 @@ let vidno=true,idet=false,risoval=0,pauza=0;
 function zapusk(){if(!idet&&vidno&&!document.hidden&&tex[tek]){idet=true;requestAnimationFrame(kadr)}}
 new IntersectionObserver(([e])=>{vidno=e.isIntersecting;zapusk()}).observe(hero);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pauza=performance.now();else{if(pauza)t1+=performance.now()-pauza;pauza=0;zapusk()}});
-zagruz(0).then(()=>{razmer();zapusk();for(let i=1;i<SLIDES.length;i++)zagruz(i)});
+// первое фото — сразу; остальные по одному и только после заставки и вступительной анимации
+zagruz(0).then(()=>{razmer();zapusk();pervoeFoto();let i=1;const dalee=()=>{if(i<SLIDES.length)zagruz(i++).then(()=>setTimeout(dalee,700),()=>setTimeout(dalee,700))};setTimeout(dalee,3200)},pervoeFoto);
 let sled=1;
 function kadr(now){
   if(!vidno||document.hidden||!tex[tek]){idet=false;return}
   requestAnimationFrame(kadr);
   let proshlo=now-t1;
+  // следующее фото ещё не готово — ждём перед растворением, а не перескакиваем резко
+  if(!tex[sled]&&proshlo>DLIT-1400){t1=now-(DLIT-1400);proshlo=DLIT-1400}
   if(proshlo>=DLIT&&tex[sled]){tek=sled;sled=(sled+1)%SLIDES.length;t1=now;proshlo=0;podpis(tek)}
   polosa(now);
   // последние 1.4 с слайда — растворение в следующий
