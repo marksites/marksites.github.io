@@ -263,14 +263,53 @@ section{padding:130px 0}
   form{padding:24px}
   footer .cols{grid-template-columns:1fr}
 }
+
+/* онлайн-заказ */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 18px;font:700 14px Manrope,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chips button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cards{grid-template-columns:repeat(3,1fr)}
+.c.skr{display:none}
+.c img{aspect-ratio:4/3}
+.c .sub{font-size:14px;color:var(--mut);margin-bottom:6px}
+.kol button.dob{border:1.5px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;padding:9px 16px;font:700 13px Manrope,sans-serif;cursor:pointer}
+.step{display:inline-flex;align-items:center;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.step button{width:38px;height:36px;border:0;background:transparent;color:var(--ink);font:700 18px Manrope,sans-serif;cursor:pointer}
+.step button:disabled{opacity:.3;cursor:default}
+.step b{min-width:26px;text-align:center;font-size:15px}
+.spisok{margin-top:26px;display:grid;gap:10px}
+.spisok .pust{padding:22px;border-radius:16px;border:1px dashed var(--crust);color:var(--mut);font-size:15px}
+.spisok .str{display:grid;grid-template-columns:1fr auto 80px 26px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.spisok .str span{font-weight:700}
+.spisok .str em{font-style:normal;text-align:right;font-weight:700;color:var(--ink)}
+.spisok .str .x{border:0;background:none;color:var(--mut);font-size:20px;cursor:pointer;padding:0}
+.itog{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;font-size:18px}
+.itog b{font:italic 500 34px "Playfair Display",serif}
+.opl{color:var(--mut);font-size:14px;margin-top:14px}
+.lab{display:block;font-weight:700;font-size:13px;margin-bottom:8px}
+.sloty{display:flex;flex-wrap:wrap;gap:8px}
+.sloty button{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:12px;padding:9px 12px;font:600 13px Manrope,sans-serif;cursor:pointer}
+.sloty button.on{border-color:var(--crust);background:var(--crust);color:#fff}
+.osh{display:none;color:#c0562b;font-weight:700;font-size:14px}
+.ok{line-height:1.5}
+.ok b{font:italic 500 26px "Playfair Display",serif;display:block;margin-bottom:6px}
+.korz{position:fixed;left:50%;bottom:18px;z-index:40;display:flex;align-items:center;gap:14px;padding:12px 14px 12px 18px;border-radius:999px;background:#2b1d14;color:#fdf6ec;text-decoration:none;box-shadow:0 14px 40px -12px rgba(43,29,20,.55);transform:translate(-50%,140%);transition:transform .45s cubic-bezier(.2,.8,.2,1);font-size:15px;white-space:nowrap}
+.korz.vid{transform:translate(-50%,0)}
+.korz .ik{font-size:20px}
+.korz .sum{font:italic 500 20px "Playfair Display",serif}
+.korz .go{background:#fdf6ec;color:#2b1d14;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px}
+.korz.pulse{animation:pk .5s}
+@keyframes pk{40%{transform:translate(-50%,0) scale(1.06)}}
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}.spisok .str{grid-template-columns:1fr auto 70px 22px;gap:10px}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}.c img{aspect-ratio:16/10}.korz{width:calc(100% - 24px);justify-content:space-between;bottom:12px}}
 </style>
 </head>
 <body>
 <header>
   <div class="w nav">
     <a class="logo" href="#"><b>Марта</b><span>хлеб и утро</span></a>
-    <nav class="menu"><a href="#den">Наш день</a><a href="#vitrina">Витрина</a><a href="#otlozhit">Отложить хлеб</a><a href="#kontakty">Где мы</a></nav>
-    <a class="btn" href="#otlozhit">Отложить хлеб</a>
+    <nav class="menu"><a href="#den">Наш день</a><a href="#vitrina">Витрина</a><a href="#zakaz">Заказать</a><a href="#kontakty">Где мы</a></nav>
+    <a class="btn" href="#zakaz">Заказать к утру</a>
     <button class="burger" aria-label="Меню" onclick="document.querySelector('.menu').classList.toggle('open')">≡</button>
   </div>
 </header>
@@ -329,12 +368,15 @@ section{padding:130px 0}
 
 <section class="vit" id="vitrina">
   <div class="w">
-    <div class="head"><div><span class="hand rv">обновляем каждое утро</span><h2 class="rv">Сегодня на <em>витрине</em></h2></div><p class="rv" style="max-width:380px;color:var(--mut);margin:0">Отметьте, что отложить — заберёте вечером тёплым, а мы не продадим это другим.</p></div>
+    <div class="head"><div><span class="hand rv">обновляем каждое утро</span><h2 class="rv">Сегодня на <em>витрине</em></h2></div>
+      <div class="chips rv" id="chips"><button class="on" data-f="all">Всё</button><button data-f="hleb">Хлеб</button><button data-f="vyp">Выпечка</button></div></div>
     <div class="cards">
-      <div class="c rv"><img loading="lazy" decoding="async" width="400" height="400" src="img/photo-1509440159596-0249088772ff_400.webp" alt=""><div class="bd"><h3>Ржаной с семечками</h3><span class="left">осталось 11</span><div class="row"><span class="pr">220 ₽</span><button>Отложить</button></div></div></div>
-      <div class="c rv"><img loading="lazy" decoding="async" width="400" height="400" src="img/photo-1555507036-ab1f4038808a_400.webp" alt=""><div class="bd"><h3>Круассан</h3><span class="left few">осталось 4</span><div class="row"><span class="pr">160 ₽</span><button>Отложить</button></div></div></div>
-      <div class="c rv"><img loading="lazy" decoding="async" width="400" height="400" src="img/photo-1586444248902-2f64eddc13df_400.webp" alt=""><div class="bd"><h3>Деревенский</h3><span class="left">осталось 8</span><div class="row"><span class="pr">260 ₽</span><button>Отложить</button></div></div></div>
-      <div class="c rv"><img loading="lazy" decoding="async" width="400" height="400" src="img/photo-1509365465985-25d11c17e812_400.webp" alt=""><div class="bd"><h3>Булочка с корицей</h3><span class="left few">осталось 3</span><div class="row"><span class="pr">140 ₽</span><button>Отложить</button></div></div></div>
+      <div class="c rv" data-id="rzh" data-cat="hleb" data-price="220" data-max="11"><img loading="lazy" decoding="async" src="img/photo-1509440159596-0249088772ff_400.webp" width="400" height="400" alt="Ржаной с семечками"><div class="bd"><h3>Ржаной с семечками</h3><span class="sub">на закваске, 600 г</span><span class="left">осталось 11</span><div class="row"><span class="pr">220 ₽</span><div class="kol"></div></div></div></div>
+      <div class="c rv" data-id="der" data-cat="hleb" data-price="260" data-max="8"><img loading="lazy" decoding="async" src="img/photo-1586444248902-2f64eddc13df_400.webp" width="400" height="400" alt="Деревенский"><div class="bd"><h3>Деревенский</h3><span class="sub">пшеничный, 700 г</span><span class="left">осталось 8</span><div class="row"><span class="pr">260 ₽</span><div class="kol"></div></div></div></div>
+      <div class="c rv" data-id="czn" data-cat="hleb" data-price="240" data-max="6"><img loading="lazy" decoding="async" src="img/photo-1549931319-a545dcf3bc73_400.webp" width="400" height="400" alt="Цельнозерновой"><div class="bd"><h3>Цельнозерновой</h3><span class="sub">нарежем при вас</span><span class="left">осталось 6</span><div class="row"><span class="pr">240 ₽</span><div class="kol"></div></div></div></div>
+      <div class="c rv" data-id="kru" data-cat="vyp" data-price="160" data-max="4"><img loading="lazy" decoding="async" src="img/photo-1555507036-ab1f4038808a_400.webp" width="400" height="400" alt="Круассан"><div class="bd"><h3>Круассан</h3><span class="sub">на сливочном масле</span><span class="left few">осталось 4</span><div class="row"><span class="pr">160 ₽</span><div class="kol"></div></div></div></div>
+      <div class="c rv" data-id="min" data-cat="vyp" data-price="390" data-max="5"><img loading="lazy" decoding="async" src="img/photo-1530610476181-d83430b64dcd_400.webp" width="400" height="400" alt="Мини-круассаны, 6 шт"><div class="bd"><h3>Мини-круассаны, 6 шт</h3><span class="sub">к завтраку на всех</span><span class="left">осталось 5</span><div class="row"><span class="pr">390 ₽</span><div class="kol"></div></div></div></div>
+      <div class="c rv" data-id="kor" data-cat="vyp" data-price="140" data-max="3"><img loading="lazy" decoding="async" src="img/photo-1509365465985-25d11c17e812_400.webp" width="400" height="400" alt="Булочка с корицей"><div class="bd"><h3>Булочка с корицей</h3><span class="sub">тёплые до 17:00</span><span class="left few">осталось 3</span><div class="row"><span class="pr">140 ₽</span><div class="kol"></div></div></div></div>
     </div>
   </div>
 </section>
@@ -359,23 +401,26 @@ section{padding:130px 0}
   </div>
 </section>
 
-<section class="res" id="otlozhit" style="padding-top:0">
+<section class="res" id="zakaz" style="padding-top:0">
   <div class="w">
     <div>
-      <span class="hand rv">чтобы точно досталось</span>
-      <h2 class="rv">Отложим <em>для вас</em></h2>
-      <p class="rv" style="color:var(--mut)">Оставьте имя и телефон — сохраним хлеб до 21:00. Оплата при получении.</p>
-      <div class="chosen rv" id="vybor">Вы пока ничего не отметили на витрине.</div>
+      <span class="hand rv">заберёте горячим</span>
+      <h2 class="rv">Ваш <em>заказ</em></h2>
+      <div class="spisok rv" id="spisok"></div>
+      <div class="itog rv"><span>Итого</span><b id="itog">0 ₽</b></div>
+      <p class="rv opl">Оплата при получении — картой или наличными. Соберём заказ к выбранному времени.</p>
     </div>
-    <form class="rv" onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.querySelector('.btn').style.display='none'">
-      <div class="two"><label>Имя<input required autocomplete="name"></label><label>Телефон<input required type="tel" autocomplete="tel" placeholder="+7"></label></div>
-      <label>Когда заберёте<select><option>Сегодня до 12:00</option><option>Сегодня 12:00–17:00</option><option>Сегодня 17:00–21:00</option><option>Завтра утром</option></select></label>
-      <label>Комментарий<textarea rows="3" id="kom" placeholder="Например: нарезать ржаной"></textarea></label>
-      <button class="btn">Отложить</button>
-      <div class="ok">Отложили! Пришлём сообщение, когда всё будет готово.</div>
+    <form class="rv" id="forma" novalidate>
+      <div class="two"><label>Имя<input required id="fImya" autocomplete="name"></label><label>Телефон<input required id="fTel" type="tel" autocomplete="tel" placeholder="+7"></label></div>
+      <div><span class="lab">Когда заберёте</span><div class="sloty" id="sloty"></div></div>
+      <label>Комментарий<textarea rows="2" id="kom" placeholder="Например: нарезать ржаной"></textarea></label>
+      <button class="btn" id="oform">Оформить заказ</button>
+      <div class="osh" id="osh"></div>
+      <div class="ok" id="ok"></div>
     </form>
   </div>
 </section>
+<a class="korz" id="korz" href="#zakaz" aria-label="Перейти к заказу"><span class="ik">🧺</span><span><b id="kN">0</b> <span id="kSl">позиций</span></span><span class="sum" id="kS">0 ₽</span><span class="go">Оформить →</span></a>
 </main>
 
 <footer id="kontakty">
@@ -410,11 +455,49 @@ glavy.forEach(g=>io2.observe(g));
 const vit=document.getElementById('vitrina');
 new IntersectionObserver(([e])=>{if(e.isIntersecting){root.style.setProperty('--bg','#f6eadb');root.style.setProperty('--ink','#2b1d14');root.style.setProperty('--mut','#7a6656');root.style.setProperty('--line','rgba(43,29,20,.14)')}},{rootMargin:'-30% 0px -60% 0px'}).observe(vit);
 new IntersectionObserver(([e])=>{if(e.isIntersecting){root.style.setProperty('--bg','#f6eadb');root.style.setProperty('--ink','#2b1d14')}},{rootMargin:'-40% 0px -50% 0px'}).observe(document.querySelector('.hero'));
-// витрина: что отложить
-const vybor=document.getElementById('vybor'),kom=document.getElementById('kom');
-document.querySelectorAll('.c button').forEach(b=>b.onclick=()=>{b.classList.toggle('on');b.textContent=b.classList.contains('on')?'✓ Отложено':'Отложить';
-  const sp=[...document.querySelectorAll('.c button.on')].map(x=>x.closest('.c').querySelector('h3').textContent);
-  vybor.textContent=sp.length?'Отложим: '+sp.join(', '):'Вы пока ничего не отметили на витрине.';kom.value=sp.length?'Отложить: '+sp.join(', '):''});
+// онлайн-заказ: корзина, фильтр витрины, время самовывоза
+const RUB=n=>n.toLocaleString('ru-RU')+' ₽',ks=document.getElementById('korz');
+const tovary={};document.querySelectorAll('.c[data-id]').forEach(c=>tovary[c.dataset.id]={el:c,n:c.querySelector('h3').textContent,pr:+c.dataset.price,max:+c.dataset.max});
+let korz={};try{korz=JSON.parse(localStorage.getItem('marta_korz')||'{}')}catch(e){}
+for(const k in korz)if(!tovary[k]||korz[k]<=0)delete korz[k];
+const sohr=()=>{try{localStorage.setItem('marta_korz',JSON.stringify(korz))}catch(e){}};
+const skl=n=>n%10===1&&n%100!==11?'позиция':n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'позиции':'позиций';
+function izm(id,d){const t=tovary[id],q=Math.max(0,Math.min(t.max,(korz[id]||0)+d));if(q)korz[id]=q;else delete korz[id];sohr();ris();if(d>0){ks.classList.remove('pulse');void ks.offsetWidth;ks.classList.add('pulse')}}
+function stepper(id){const q=korz[id]||0,t=tovary[id];return `<div class="step"><button type="button" data-id="${id}" data-d="-1" aria-label="Меньше">−</button><b>${q}</b><button type="button" data-id="${id}" data-d="1" aria-label="Больше"${q>=t.max?' disabled':''}>+</button></div>`}
+function ris(){
+  let n=0,sum=0;
+  for(const id in tovary){const q=korz[id]||0,kol=tovary[id].el.querySelector('.kol');n+=q;sum+=q*tovary[id].pr;
+    kol.innerHTML=q?stepper(id):`<button type="button" class="dob" data-id="${id}" data-d="1">В корзину</button>`}
+  document.getElementById('kN').textContent=n;document.getElementById('kSl').textContent=skl(n);document.getElementById('kS').textContent=RUB(sum);
+  document.getElementById('itog').textContent=RUB(sum);document.getElementById('oform').textContent=n?'Оформить заказ · '+RUB(sum):'Оформить заказ';
+  const sp=document.getElementById('spisok');
+  sp.innerHTML=n?Object.keys(korz).map(id=>`<div class="str"><span>${tovary[id].n}</span>${stepper(id)}<em>${RUB(korz[id]*tovary[id].pr)}</em><button type="button" class="x" data-id="${id}" data-d="-99" aria-label="Убрать">×</button></div>`).join('')
+    :'<div class="pust">Корзина пока пустая — выберите хлеб на витрине выше.</div>';
+  vidKorz()}
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(b){e.preventDefault();izm(b.dataset.id,+b.dataset.d)}});
+// фильтр
+document.querySelectorAll('#chips button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#chips button').forEach(x=>x.classList.toggle('on',x===b));
+  for(const id in tovary)tovary[id].el.classList.toggle('skr',b.dataset.f!=='all'&&tovary[id].el.dataset.cat!==b.dataset.f)});
+// плавающая корзина: видна, когда что-то выбрано и блок заказа не на экране
+let zakazVid=false;new IntersectionObserver(([e])=>{zakazVid=e.isIntersecting;vidKorz()}).observe(document.getElementById('zakaz'));
+function vidKorz(){ks.classList.toggle('vid',Object.keys(korz).length>0&&!zakazVid)}
+// время самовывоза по часам посетителя
+const sl=document.getElementById('sloty'),ch=new Date().getHours(),opts=[];
+for(let x=Math.max(7,ch+1);x<21;x++)opts.push(['Сегодня',`${x}:00–${x+1}:00`]);
+opts.push(['Завтра','7:00–9:00'],['Завтра','9:00–12:00']);
+let slot=0;sl.innerHTML=opts.slice(0,8).map((o,i)=>`<button type="button" class="${i?'':'on'}" data-s="${i}">${o[0]}, ${o[1]}</button>`).join('');
+sl.onclick=e=>{const b=e.target.closest('button');if(!b)return;slot=+b.dataset.s;sl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))};
+// оформление
+document.getElementById('forma').onsubmit=e=>{e.preventDefault();const osh=document.getElementById('osh'),f=e.target;
+  const n=Object.keys(korz).length,imya=document.getElementById('fImya').value.trim(),tel=document.getElementById('fTel').value.replace(/\D/g,'');
+  osh.textContent=!n?'Добавьте что-нибудь с витрины.':!imya?'Как к вам обращаться?':tel.length<10?'Проверьте номер телефона.':'';
+  osh.style.display=osh.textContent?'block':'none';if(osh.textContent)return;
+  const sum=Object.keys(korz).reduce((a,id)=>a+korz[id]*tovary[id].pr,0),no=1000+Math.floor(Math.random()*9000),o=opts[slot];
+  [...f.children].forEach(x=>{if(x.id!=='ok')x.style.display='none'});
+  const ok=document.getElementById('ok');ok.style.display='block';
+  ok.innerHTML=`<b>Заказ № ${no} принят!</b>${imya}, ждём вас ${o[0].toLowerCase()} ${o[1]}. Сумма ${RUB(sum)}, оплата при получении. Если что-то изменится — позвоним.`;
+  korz={};sohr();ris()};
+ris();
 document.querySelectorAll('.menu a').forEach(a=>a.onclick=()=>document.querySelector('.menu').classList.remove('open'));
 })();
 </script>

@@ -5,8 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ТИШИНА — бюро интерьеров</title>
 <meta name="description" content="ТИШИНА — бюро интерьеров. Проектируем спокойные дома: свет, материалы, тишина. Проекты под ключ от 2 500 ₽ за м².">
-<meta name="theme-color" content="#0f0e0d">
+<meta name="theme-color" content="#0a0908">
 <style>
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/034e3f1d96.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/25e3098244.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 @font-face {
   font-family: 'Cormorant Garamond';
   font-style: italic;
@@ -37,6 +53,54 @@
   font-weight: 500;
   font-display: swap;
   src: url(fonts/25e3098244.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/4f4a825379.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/2fed1d1b2e.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/4f4a825379.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/2fed1d1b2e.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/4f4a825379.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/2fed1d1b2e.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -339,6 +403,57 @@ input:focus,select:focus{border-color:#141210}
   .mag{width:150px;height:150px}
   .pre{padding:20px}
 }
+
+/* ===================== ТЁМНЫЙ ЛЮКС С ЗОЛОТОМ ===================== */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.55s}
+:root{--bg:#0a0908;--bg2:#12100e;--ink:#f1eadf;--mut:#9a9183;--sand:#d4b26a;--line:rgba(212,178,106,.18);
+  --gold:linear-gradient(100deg,#9c7330 0%,#f0d48d 40%,#c99a48 68%,#87611f 100%)}
+::selection{background:#d4b26a;color:#0a0908}
+body:after{content:"";position:fixed;inset:0;z-index:70;pointer-events:none;background:url(img/zerno.png);opacity:.35;transform:translateZ(0)}
+h1,h2,h3,.pre .num,.card .no,.fig b,.st .n,.marq .tr,.rev blockquote{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;letter-spacing:-.015em}
+.hero h1{font-weight:300;line-height:.9}
+i.s,em,.fig b,.pre .num,.card .no,.st .n{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.man p span.s{color:rgba(212,178,106,.18)}
+.man p span.s.on{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.it .h em{background:none;color:var(--sand);-webkit-background-clip:border-box;background-clip:border-box}
+.lbl{color:var(--sand)}
+/* логотип с монограммой */
+.logo{display:inline-flex;align-items:center;gap:14px}
+.logo:before{content:"Т";display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(212,178,106,.6);border-radius:50%;font:400 19px/1 "Cormorant Garamond",serif;letter-spacing:0;color:var(--sand)}
+header.svet{color:#fff}header.svet:before{background:rgba(10,9,8,.94);border-color:var(--line)}
+header:before{border-bottom-color:var(--line)}
+/* первый экран: тонкая золотая рамка */
+.hero:before{content:"";position:absolute;inset:22px;border:1px solid rgba(212,178,106,.32);z-index:1;pointer-events:none}
+.hero .row p{color:#d6cdbf}
+.slide .bar i{background:var(--gold)}
+/* карточки проектов — ссылки на страницы */
+.card{display:block;color:var(--ink);outline:1px solid rgba(212,178,106,.16);outline-offset:-1px}
+.card .smotr{position:absolute;top:28px;right:28px;z-index:4;padding:11px 20px;border:1px solid rgba(212,178,106,.55);border-radius:40px;background:rgba(10,9,8,.55);color:var(--sand);font:500 12px "Inter Tight",sans-serif;letter-spacing:.2em;text-transform:uppercase;transition:background .35s,color .35s}
+.card .smotr b{display:inline-block;transition:transform .35s}
+@media (hover:hover){.card:hover .smotr{background:var(--sand);color:#0a0908}.card:hover .smotr b{transform:translateX(5px)}}
+.card h3{font-weight:300}
+/* бегущая строка, цифры, отзыв */
+.marq{border-color:var(--line)}
+.rev blockquote{font-style:italic}
+/* кнопки */
+.mag{background:var(--gold);color:#0a0908;font:500 13px "Inter Tight",sans-serif;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 20px 60px -20px rgba(212,178,106,.55)}
+.tabs button.on{background:var(--sand);border-color:var(--sand);color:#0a0908}
+/* контакт — тоже тёмный, с золотым свечением */
+.cta{background:radial-gradient(110% 70% at 50% 0%,#221b12 0%,#0d0b09 62%);color:var(--ink);border-top:1px solid var(--line)}
+.cta h2 em{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cta label{color:var(--mut)}
+.cta input,.cta select{color:var(--ink);border-bottom-color:rgba(241,234,223,.22)}
+.cta input:focus,.cta select:focus{border-color:var(--sand)}
+.cta select option{background:#12100e;color:var(--ink)}
+.cta form button{color:var(--sand)!important;border-bottom-color:var(--sand)!important}
+.cta .foot{border-color:var(--line);color:var(--mut)}
+.ok{color:var(--sand)}
+/* затемнение сверху — чтобы меню читалось на любом фото */
+.hero .w:before{content:"";position:absolute;left:0;right:0;top:0;height:200px;background:linear-gradient(180deg,rgba(10,9,8,.72),rgba(10,9,8,0));pointer-events:none;z-index:1}
+.hero .w{position:static}.hero .w>*{position:relative;z-index:2}
+.it .h b{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(32px,3.4vw,54px);letter-spacing:-.01em}
+@media (max-width:900px){.hero:before{inset:12px}.card .smotr{top:16px;right:16px;padding:9px 14px;font-size:10px}}
 </style>
 </head>
 <body class="wait">
@@ -363,7 +478,7 @@ input:focus,select:focus{border-color:#141210}
     <h1><span class="ln"><span>Интерьеры,</span></span><span class="ln"><span>в которых <i class="s">тихо</i></span></span></h1>
     <div class="row">
       <p>Проектируем дома, где хочется замедлиться: мягкий свет, честные материалы, ничего лишнего.</p>
-      <div class="slide"><span id="sNo">01</span><span class="bar"><i id="sBar"></i></span><span>04</span><b id="sName">Дом у залива</b></div>
+      <div class="slide"><span id="sNo">01</span><span class="bar"><i id="sBar"></i></span><span>04</span><b id="sName">Особняк в Барвихе</b></div>
     </div>
   </div>
 </section>
@@ -377,11 +492,11 @@ input:focus,select:focus{border-color:#141210}
 
 <section class="projs" id="proekty">
   <div class="w">
-    <div class="top"><h2 class="rv">Проекты</h2><span class="lbl rv">Избранное · 2022–2026</span></div>
-    <article class="card"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/photo-1618221195710-dd6b41faaea6_1600.webp" srcset="img/photo-1618221195710-dd6b41faaea6_800.webp 800w, img/photo-1618221195710-dd6b41faaea6_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Гостиная, Дом у залива"><div class="inf"><span class="no">01</span><h3>Дом у залива</h3><dl><dt>Площадь</dt><dd>186 м²</dd><dt>Срок</dt><dd>7 месяцев</dd></dl></div></article>
-    <article class="card"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/photo-1616594039964-ae9021a400a0_1600.webp" srcset="img/photo-1616594039964-ae9021a400a0_800.webp 800w, img/photo-1616594039964-ae9021a400a0_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Спальня, Квартира на Остоженке"><div class="inf"><span class="no">02</span><h3>Квартира в центре</h3><dl><dt>Площадь</dt><dd>94 м²</dd><dt>Срок</dt><dd>5 месяцев</dd></dl></div></article>
-    <article class="card"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/photo-1622372738946-62e02505feb3_1600.webp" srcset="img/photo-1622372738946-62e02505feb3_800.webp 800w, img/photo-1622372738946-62e02505feb3_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Кухня, Тёмный лофт"><div class="inf"><span class="no">03</span><h3>Тёмный лофт</h3><dl><dt>Площадь</dt><dd>128 м²</dd><dt>Срок</dt><dd>6 месяцев</dd></dl></div></article>
-    <article class="card"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/photo-1600573472550-8090b5e0745e_1600.webp" srcset="img/photo-1600573472550-8090b5e0745e_800.webp 800w, img/photo-1600573472550-8090b5e0745e_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Дом со стеклянным фасадом"><div class="inf"><span class="no">04</span><h3>Стеклянный дом</h3><dl><dt>Площадь</dt><dd>320 м²</dd><dt>Срок</dt><dd>11 месяцев</dd></dl></div></article>
+    <div class="top"><h2 class="rv">Проекты</h2><span class="lbl rv">Избранное · нажмите, чтобы открыть</span></div>
+    <a class="card" href="osobnyak.html"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/l_osob_hero_1600.webp" srcset="img/l_osob_hero_1000.webp 1000w, img/l_osob_hero_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Особняк в Барвихе" style="view-transition-name:p-osob"><div class="inf"><span class="no">01</span><h3>Особняк в Барвихе</h3><dl><dt>Площадь</dt><dd>640 м²</dd><dt>Срок</dt><dd>14 месяцев</dd></dl></div><span class="smotr">Смотреть проект <b>→</b></span></a>
+    <a class="card" href="penthaus.html"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/l_pent_hero_1600.webp" srcset="img/l_pent_hero_1000.webp 1000w, img/l_pent_hero_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Пентхаус над городом" style="view-transition-name:p-pent"><div class="inf"><span class="no">02</span><h3>Пентхаус над городом</h3><dl><dt>Площадь</dt><dd>310 м²</dd><dt>Срок</dt><dd>9 месяцев</dd></dl></div><span class="smotr">Смотреть проект <b>→</b></span></a>
+    <a class="card" href="kvartira.html"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/l_kv_hero_1600.webp" srcset="img/l_kv_hero_1000.webp 1000w, img/l_kv_hero_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Квартира на Патриарших" style="view-transition-name:p-kv"><div class="inf"><span class="no">03</span><h3>Квартира на Патриарших</h3><dl><dt>Площадь</dt><dd>165 м²</dd><dt>Срок</dt><dd>7 месяцев</dd></dl></div><span class="smotr">Смотреть проект <b>→</b></span></a>
+    <a class="card" href="restoran.html"><img loading="lazy" decoding="async" width="1600" height="1000" src="img/l_rest_hero_1600.webp" srcset="img/l_rest_hero_1000.webp 1000w, img/l_rest_hero_1600.webp 1600w" sizes="(max-width:900px) 100vw, 1360px" alt="Ресторан «Латунь»" style="view-transition-name:p-rest"><div class="inf"><span class="no">04</span><h3>Ресторан «Латунь»</h3><dl><dt>Площадь</dt><dd>420 м²</dd><dt>Срок</dt><dd>8 месяцев</dd></dl></div><span class="smotr">Смотреть проект <b>→</b></span></a>
   </div>
 </section>
 
@@ -393,7 +508,7 @@ input:focus,select:focus{border-color:#141210}
 <section class="ba" id="eskiz">
   <div class="w">
     <div class="top"><h2 class="rv">От <i class="s">эскиза</i><br>до дома</h2><p class="rv">Каждую комнату мы сначала рисуем от руки и только потом строим. Потяните ползунок: слева эскиз, справа тот же дом сегодня.</p></div>
-    <div class="tabs rv" id="tabs"><button class="on" data-k="zaliv">Гостиная · Дом у залива</button><button data-k="loft">Кухня · Тёмный лофт</button></div>
+    <div class="tabs rv" id="tabs"><button class="on" data-k="zaliv">Гостиная</button><button data-k="loft">Кухня</button></div>
     <div class="cmp rv" id="cmp" role="slider" aria-label="Сравнение эскиза и готового интерьера" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
       <img id="cmpF" src="img/zaliv_foto.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Готовая гостиная">
       <div class="e"><img id="cmpE" src="img/zaliv_eskiz.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Эскиз гостиной"></div>
@@ -406,10 +521,10 @@ input:focus,select:focus{border-color:#141210}
 <section class="srv" id="uslugi">
   <div class="w">
     <div class="top"><h2 class="rv">Что мы <i class="s">делаем</i></h2><p class="rv">Ведём проект от первого обмера до последней лампочки. Вы приезжаете в готовый дом.</p></div>
-    <div class="it rv"><div class="h"><span>01</span><b>Дизайн-проект</b><i>от 2 500 ₽ / м²</i><em>+</em></div><div class="bd"><div class="in"><p>Планировка, коллажи, 3D-визуализации каждой комнаты и полный пакет чертежей для строителей. Три встречи, на которых решения принимаем вместе.</p><img loading="lazy" decoding="async" width="640" height="400" src="img/photo-1600607687939-ce8a6c25118c_640.webp" alt=""></div></div></div>
-    <div class="it rv"><div class="h"><span>02</span><b>Авторский надзор</b><i>от 60 000 ₽ / мес</i><em>+</em></div><div class="bd"><div class="in"><p>Приезжаем на объект, проверяем каждое решение и отвечаем строителям вместо вас. Вы получаете фотоотчёт раз в неделю.</p><img loading="lazy" decoding="async" width="640" height="400" src="img/photo-1600566753190-17f0baa2a6c3_640.webp" alt=""></div></div></div>
-    <div class="it rv"><div class="h"><span>03</span><b>Комплектация</b><i>скидки поставщиков — ваши</i><em>+</em></div><div class="bd"><div class="in"><p>Подбираем и заказываем мебель, свет и текстиль. Все скидки поставщиков передаём вам, наш доход — фиксированная оплата.</p><img loading="lazy" decoding="async" width="640" height="400" src="img/photo-1617806118233-18e1de247200_640.webp" alt=""></div></div></div>
-    <div class="it rv"><div class="h"><span>04</span><b>Под ключ</b><i>от 9 месяцев</i><em>+</em></div><div class="bd"><div class="in"><p>Проект, ремонт, мебель и декор одной командой. Вы отдаёте ключи от бетона и получаете их обратно от готового дома.</p><img loading="lazy" decoding="async" width="640" height="400" src="img/photo-1600210492486-724fe5c67fb0_640.webp" alt=""></div></div></div>
+    <div class="it rv"><div class="h"><span>01</span><b>Дизайн-проект</b><i>от 2 500 ₽ / м²</i><em>+</em></div><div class="bd"><div class="in"><p>Планировка, коллажи, 3D-визуализации каждой комнаты и полный пакет чертежей для строителей. Три встречи, на которых решения принимаем вместе.</p><img loading="lazy" decoding="async" width="800" height="533" src="img/l_kv_spalnya_800.webp" alt=""></div></div></div>
+    <div class="it rv"><div class="h"><span>02</span><b>Авторский надзор</b><i>от 60 000 ₽ / мес</i><em>+</em></div><div class="bd"><div class="in"><p>Приезжаем на объект, проверяем каждое решение и отвечаем строителям вместо вас. Вы получаете фотоотчёт раз в неделю.</p><img loading="lazy" decoding="async" width="800" height="533" src="img/l_pent_lestnica_800.webp" alt=""></div></div></div>
+    <div class="it rv"><div class="h"><span>03</span><b>Комплектация</b><i>скидки поставщиков — ваши</i><em>+</em></div><div class="bd"><div class="in"><p>Подбираем и заказываем мебель, свет и текстиль. Все скидки поставщиков передаём вам, наш доход — фиксированная оплата.</p><img loading="lazy" decoding="async" width="800" height="533" src="img/l_rest_stulya_800.webp" alt=""></div></div></div>
+    <div class="it rv"><div class="h"><span>04</span><b>Под ключ</b><i>от 9 месяцев</i><em>+</em></div><div class="bd"><div class="in"><p>Проект, ремонт, мебель и декор одной командой. Вы отдаёте ключи от бетона и получаете их обратно от готового дома.</p><img loading="lazy" decoding="async" width="800" height="533" src="img/l_osob_derevo_800.webp" alt=""></div></div></div>
     <div class="fig">
       <div class="rv"><b data-n="12">0</b><span>лет работы бюро</span></div>
       <div class="rv"><b data-n="140">0</b><span>реализованных проектов</span></div>
@@ -439,7 +554,7 @@ input:focus,select:focus{border-color:#141210}
   <div class="w">
     <span class="lbl rv">Отзыв</span>
     <blockquote class="rv">«Мы переехали год назад и до сих пор не купили ни одной лишней вещи. Здесь просто нечего добавить».</blockquote>
-    <cite class="rv">Анна и Михаил · Дом у залива</cite>
+    <cite class="rv">Елена и Андрей · Особняк в Барвихе</cite>
   </div>
 </section>
 
@@ -463,12 +578,12 @@ input:focus,select:focus{border-color:#141210}
 <script>
 (()=>{
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(pointer: fine)').matches,mob=innerWidth<900;
-const U=id=>`img/${id}_${mob?1000:1800}.webp`;
-const SLIDES=[['photo-1618221195710-dd6b41faaea6','Дом у залива'],['photo-1616594039964-ae9021a400a0','Квартира в центре'],['photo-1622372738946-62e02505feb3','Тёмный лофт'],['photo-1600573472550-8090b5e0745e','Стеклянный дом']];
+const U=id=>`img/l_${id}_hero_1800.webp`; // на телефоне берётся узкая вертикальная часть фото — нужен полный размер
+const SLIDES=[['osob','Особняк в Барвихе'],['pent','Пентхаус над городом'],['kv','Квартира на Патриарших'],['rest','Ресторан «Латунь»']];
 
 // ---------- заставка: счётчик и стопка интерьеров ----------
 const pre=document.getElementById('pre'),num=document.getElementById('num'),stack=document.getElementById('stack');
-SLIDES.concat([['photo-1600607687939-ce8a6c25118c']]).forEach(([id])=>{const im=new Image();im.src=`img/${id}_400.webp`;im.alt='';stack.appendChild(im)});
+SLIDES.forEach(([id])=>{const im=new Image();im.src=`img/l_${id}_hero_400.webp`;im.alt='';stack.appendChild(im)});
 const kartinki=[...stack.children];let t0=performance.now();
 function schet(now){const k=Math.min(1,(now-t0)/1500),v=Math.round((1-Math.pow(1-k,2))*100);num.textContent=v;
   kartinki.forEach((im,i)=>im.classList.toggle('on',v>=i*20));
@@ -599,7 +714,7 @@ function zagruz(i){return new Promise(ok=>{const im=new Image();im.onload=()=>{c
   tex[i]=t;raz[i]=[im.naturalWidth,im.naturalHeight];ok()};im.src=U(SLIDES[i][0])})}
 // Видеокарту не гоняем зря: картинка рисуется в разрешении не выше 1.25x (на телефоне 1x),
 // в спокойном состоянии ~30 кадров/с (медленный наезд камеры этого хватает), во время растворения — каждый кадр.
-const dpr=Math.min(devicePixelRatio||1,mob?1:1.25);
+const dpr=Math.min(devicePixelRatio||1,mob?1.5:1.25);
 function razmer(){const w=Math.round(hero.clientWidth*dpr),h=Math.round(hero.clientHeight*dpr);
   if(w===cv.width&&h===cv.height)return; // на телефоне resize срабатывает при прокрутке — не очищаем холст зря
   cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(uRes,w,h);risoval=0}
